@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+   
+
+    <div class='table-responsive'>
+        <table class='table'>
+            <tr>
+                <th>JobName</th>
+                <th>Description</th>
+                <th>NoOfPosition</th>
+                
+            </tr>
+
+            <tr *ngFor="let job of jobs">
+               
+                <td>
+                    {{job.JobName}}
+                </td>
+                <td>
+                    {{job.Description}}
+                </td>
+              
+                <td>
+                    {{job.NoOfPosition}}
+                </td>
+                <!--<td>
+                    {{product.NoOfPOsitionLeft}}
+                </td>-->
+                
+                <td>
+                    <button class='btn-primary' (click)="onApply(job.JobId)">Apply</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <br/>
+    <div class="form-group">
+        <div class="form-horizontal">
+            <form *ngIf="japply" #addjob="ngForm" class="form-horizontal">
+                <h1>Apply For the Job..!!</h1>
+                <label for="GitHubUrl">GitHubUrl:</label><input id="GitHubUrl" class="form-control" type="text" #GitHubUrl="ngForm" ngControl="GitHubUrl" [(ngModel)]="applicant.GitHubUrl" required pattern="https?://.+"/><div [hidden]="GitHubUrl.valid || GitHubUrl.pristine" class="alert alert-danger">URL must start with http://</div><br />
+                <label>Resume:</label><input class="form-control" type="file" #Description="ngForm" ngControl="Resume" [(ngModel)]="applicant.Resume" required/><br />
+              
+
+
+                <button class='btn-primary' (click)="applyforJob(appcant.Id)">Apply</button>
+            </form>
+        </div>
+    </div>
+
+    <!--<h1>hello Applicant.....!!!</h1>-->
+</body>
+</html>

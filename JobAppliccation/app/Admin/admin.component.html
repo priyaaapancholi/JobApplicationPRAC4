@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <!--<h1>hello Admin.....!!!!!</h1>-->
+    
+   <div>
+        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" (click)='addJob()'>Add Job</button>
+        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" (click)='viewApplies()'>View</button>
+        
+    </div><br/><br/>
+
+
+    <div class="form-group">
+        <div class="form-horizontal">
+            <form *ngIf="jobForm" #addjob="ngForm" class="form-horizontal">
+                <label>JobName:</label><input class="form-control" type="text" #JobName="ngForm" ngControl="JobName" [(ngModel)]="job.JobName" required /><br />
+                <label>Description:</label><textarea class="form-control" type="text" #Description="ngForm" ngControl="Description" [(ngModel)]="job.Description" required maxlength="800"></textarea><br />
+                <label>NoOfPosition:</label><input class="form-control" type="number" #NoOfPosition="ngForm" ngControl="NoOfPosition" [(ngModel)]="job.NoOfPosition" required min="0"/><br />
+                
+
+                <button class='btn-primary' (click)="onAdd(job)">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
